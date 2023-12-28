@@ -2,7 +2,7 @@ import Card from "./Card";
 
 class TaneCard extends Card {
   constructor(month: number) {
-    let points = 20;
+    let points = 10;
     super(month, points);
   }
 
