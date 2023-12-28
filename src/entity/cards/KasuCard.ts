@@ -9,6 +9,8 @@ class KasuCard extends Card {
   show(): void {
     console.log(`カス札: ${this.month}月`);
   }
-}
 
-export { KasuCard as PointCard };
+  equals(card: Card): boolean {
+    return card instanceof KasuCard && this.month === card.month;
+  }
+}

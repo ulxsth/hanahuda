@@ -17,4 +17,5 @@ export default abstract class Card {
   }
 
   abstract show(): void;
+  abstract equals(card: Card): boolean;
 }

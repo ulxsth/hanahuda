@@ -9,6 +9,10 @@ class TanCard extends Card {
   show(): void {
     console.log(`タン札: ${this.month}月`);
   }
+
+  equals(card: Card): boolean {
+    return card instanceof TanCard && this.month === card.month;
+  }
 }
 
 class BlueTanCard extends TanCard {

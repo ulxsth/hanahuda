@@ -9,6 +9,10 @@ class HikariCard extends Card {
   show(): void {
     console.log(`光札: ${this.month}月`);
   }
+
+  equals(card: Card): boolean {
+    return card instanceof HikariCard && this.month === card.month;
+  }
 }
 
 class OnoDofuCard extends HikariCard {

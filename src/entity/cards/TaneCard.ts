@@ -9,6 +9,10 @@ class TaneCard extends Card {
   show(): void {
     console.log(`タネ札: ${this.month}月`);
   }
+
+  equals(card: Card): boolean {
+    return card instanceof TaneCard && this.month === card.month;
+  }
 }
 
 class InoShikaChoCard extends TaneCard {
