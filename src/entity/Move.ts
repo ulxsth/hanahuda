@@ -3,7 +3,7 @@ import Card from "./cards/Card";
 /**
  * ゲーム内での行動を示すクラス
  */
-class Move {
+export class Move {
   private _player: string;
   private _card: Card;
   private _timestamp: Date;
