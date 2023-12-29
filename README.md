@@ -1,4 +1,4 @@
-# hanahuda
+# 花札
 
 https://www.nintendo.co.jp/others/hanafuda_kabufuda/howtoplay/index.html
 
