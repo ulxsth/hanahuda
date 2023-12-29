@@ -15,22 +15,6 @@ export class Deck {
 
   constructor() {
     this._cards = [];
-    this.init();
-  }
-
-  get length(): number {
-    return this._cards.length;
-  }
-
-  get cards(): Card[] {
-    return this._cards;
-  }
-
-  /**
-   * 山札を初期化する
-   */
-  public init(): void {
-    this._cards = [];
 
     try {
       let filePath = path.join(__dirname, '../../resource/deck.json');
@@ -79,6 +63,14 @@ export class Deck {
     } catch (e) {
       console.error(e);
     }
+  }
+
+  get length(): number {
+    return this._cards.length;
+  }
+
+  get cards(): Card[] {
+    return this._cards;
   }
 
   /**
