@@ -15,7 +15,7 @@ export class TanCard extends Card {
   }
 }
 
-export class BlueTanCard extends TanCard {
+export class AotanCard extends TanCard {
   constructor(month: number) {
     super(month);
   }
@@ -25,7 +25,7 @@ export class BlueTanCard extends TanCard {
   }
 }
 
-export class RedTanCard extends TanCard {
+export class AkatanCard extends TanCard {
   constructor(month: number) {
     super(month);
   }
