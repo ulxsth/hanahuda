@@ -78,4 +78,13 @@ export class Deck {
       console.error(e);
     }
   }
+
+  /**
+   * 山札からカードを1枚引く
+   */
+  draw(): Card {
+    const card = this._cards.shift();
+    if (!card) throw new Error('山札が空です。');
+    return card;
+  }
 }
