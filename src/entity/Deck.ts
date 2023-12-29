@@ -29,7 +29,9 @@ export class Deck {
   /**
    * 山札を初期化する
    */
-  private init(): void {
+  public init(): void {
+    this._cards = [];
+
     try {
       let filePath = path.join(__dirname, '../../resource/deck.json');
       let fileContents = fs.readFileSync(filePath, 'utf8');
