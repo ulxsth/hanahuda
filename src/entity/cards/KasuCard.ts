@@ -2,8 +2,7 @@ import Card from './Card';
 
 export class KasuCard extends Card {
   constructor(month: number) {
-    let points = 1;
-    super(month, points);
+    super(month);
   }
 
   show(): void {

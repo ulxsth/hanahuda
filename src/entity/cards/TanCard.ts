@@ -2,8 +2,7 @@ import Card from "./Card";
 
 export class TanCard extends Card {
   constructor(month: number) {
-    let points = 5;
-    super(month, points);
+    super(month);
   }
 
   show(): void {

@@ -2,8 +2,7 @@ import Card from "./Card";
 
 export class HikariCard extends Card {
   constructor(month: number) {
-    let points = 10;
-    super(month, points);
+    super(month);
   }
 
   show(): void {
