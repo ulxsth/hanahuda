@@ -3,18 +3,20 @@ import Player from "./Player";
 import { Deck } from "./Deck";
 
 class Game {
-  private _id: number;
-  private _roomName: string;
-  private _createdAt: Date;
-  private _updatedAt: Date;
-  private _status: GameStatus;
+  id: number;
+  roomName: string;
+  createdAt: Date;
+  updatedAt: Date;
+  status: GameStatus;
 
-  private record: YearRecord;
-  private _deck: Deck;
-  private _players: [Player, Player];
+  record: YearRecord;
+  deck: Deck;
+  players: [Player, Player];
 
-  private _month: number;
-  private _playerTurn: 0 | 1;
+  month: number;
+  playerTurn: 0 | 1;
+
+  previousWinner: 0 | 1;
 
   constructor(
     id: number,
@@ -24,57 +26,30 @@ class Game {
     playerName1: string,
     playerName2: string
   ) {
-    this._id = id;
-    this._roomName = roomName;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
-    this._status = GameStatus.Preparation;
+    this.id = id;
+    this.roomName = roomName;
+    this.createdAt = createdAt;
+    this.updatedAt = updatedAt;
+    this.status = GameStatus.Preparation;
 
     this.record = new YearRecord();
-    this._deck = new Deck();
-    this._players = [new Player(playerName1), new Player(playerName2)];
+    this.deck = new Deck();
+    this.players = [new Player(playerName1), new Player(playerName2)];
 
-    this._month = 1;
-    this._playerTurn = Math.floor(Math.random() * 2) % 2 as 0 | 1;
+    this.month = 1;
+    this.playerTurn = Math.floor(Math.random() * 2) % 2 as 0 | 1;
+    this.previousWinner = this.playerTurn;
   }
 
-  get id(): number {
-    return this._id;
-  }
+  /**
+   * 月を進める
+   */
+  nextMonth(): void {
+    this.month++;
+    this.playerTurn = this.previousWinner;
 
-  get roomName(): string {
-    return this._roomName;
+    this.deck = new Deck();
   }
-
-  get createdAt(): Date {
-    return this._createdAt;
-  }
-
-  get updatedAt(): Date {
-    return this._updatedAt;
-  }
-
-  get status(): GameStatus {
-    return this._status;
-  }
-
-  get deck(): Deck {
-    return this._deck;
-  }
-
-  get players(): [Player, Player] {
-    return this._players;
-  }
-
-  get month(): number {
-    return this._month;
-  }
-
-  get playerTurn(): 0 | 1 {
-    return this._playerTurn;
-  }
-
-  
 }
 
 enum GameStatus {
