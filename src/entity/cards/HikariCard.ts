@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-class HikariCard extends Card {
+export class HikariCard extends Card {
   constructor(month: number) {
     let points = 10;
     super(month, points);
@@ -15,7 +15,7 @@ class HikariCard extends Card {
   }
 }
 
-class OnoDofuCard extends HikariCard {
+export class OnoDofuCard extends HikariCard {
   constructor(month: number) {
     super(month);
   }

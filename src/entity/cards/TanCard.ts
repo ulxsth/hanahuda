@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-class TanCard extends Card {
+export class TanCard extends Card {
   constructor(month: number) {
     let points = 5;
     super(month, points);
@@ -15,7 +15,7 @@ class TanCard extends Card {
   }
 }
 
-class BlueTanCard extends TanCard {
+export class BlueTanCard extends TanCard {
   constructor(month: number) {
     super(month);
   }
@@ -25,7 +25,7 @@ class BlueTanCard extends TanCard {
   }
 }
 
-class RedTanCard extends TanCard {
+export class RedTanCard extends TanCard {
   constructor(month: number) {
     super(month);
   }

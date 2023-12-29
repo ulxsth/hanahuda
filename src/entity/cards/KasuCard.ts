@@ -1,6 +1,6 @@
 import Card from './Card';
 
-class KasuCard extends Card {
+export class KasuCard extends Card {
   constructor(month: number) {
     let points = 1;
     super(month, points);
