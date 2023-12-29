@@ -13,16 +13,16 @@ https://www.nintendo.co.jp/others/hanafuda_kabufuda/howtoplay/index.html
 - 猪鹿蝶
 - タネ
 
-## タン
+### タン
 - 赤タン
 - 青タン
 - ※赤青タン（ほかの短冊札１枚につき１点プラス）
 - タン
 
-## カス
+### カス
 - カス
 
-## 特殊
+### 特殊
 - 月見で一杯
 - 花見で一杯
 - 手四
