@@ -48,7 +48,7 @@ export class Hand {
    * @param index 取り除くカードのインデックス
    */
   removeAt(index: number): void {
-    if (index >= 0 && index < this._cards.length) {
+    if (index < 0 || index >= this._cards.length) {
       throw new Error("index out of range");
     }
     this._cards.splice(index, 1);
