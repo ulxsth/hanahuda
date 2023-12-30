@@ -33,7 +33,7 @@ export class Deck {
     this._cards = [];
 
     try {
-      let filePath = path.join(__dirname, '../../../resource/deck.json');
+      const filePath = path.join(__dirname, '../../resource/deck.json');
       let fileContents = fs.readFileSync(filePath, 'utf8');
       let data = JSON.parse(fileContents);
 
