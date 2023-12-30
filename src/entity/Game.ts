@@ -87,7 +87,7 @@ class Game {
     this.deck.init();
     this.players.forEach(player => {
       player.addCards(this.deck.draw(8));
-    }
+    });
   }
 }
 
