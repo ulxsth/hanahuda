@@ -40,4 +40,8 @@ export class Hand {
   public show(): void {
     this._cards.forEach(card => card.show());
   }
+
+  public sort(): void {
+    this._cards.sort((a, b) => a.month - b.month);
+  }
 }
