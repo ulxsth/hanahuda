@@ -56,16 +56,29 @@ for (let i = 1; i <= 1; i++) {
     input: process.stdin,
     output: process.stdout
   });
-  console.log(game.players[game.playerTurn].name + " のターンです");
+  while (true) {
+    console.log(game.players[game.playerTurn].name + " のターンです");
 
-  game.players[game.playerTurn].hand.cards.forEach((card, index) => {
-    console.log(`${index}: ${card.month}`);
-  });
-  rl.question("捨てるカードを選択してください: ", (answer: string) => {
-    const card = game.players[game.playerTurn].hand.filter(card => card.month === parseInt(answer));
-    game.deck.discard(card);
-    game.players[game.playerTurn].hand = game.players[game.playerTurn].hand.filter(card => card.month !== parseInt(answer));
-    rl.close();
-  });
+    game.players[game.playerTurn].hand.cards.forEach((card, index) => {
+      console.log(`${index}: ${card.month}`);
+    });
+    rl.question("捨てるカードを選択してください: ", (answer: string) => {
+      const index = parseInt(answer);
+      if (isNaN(index)) {
+        console.log("無効な選択です");
+        rl.close();
+        return;
+      }
 
+      try {
+        game.players[game.playerTurn].hand.removeAt(index);
+      } catch (e) {
+        console.log("無効な選択です");
+        rl.close();
+        return;
+      }
+
+      rl.close();
+    });
+  }
 }

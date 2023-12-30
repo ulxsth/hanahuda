@@ -39,10 +39,26 @@ export class Hand {
    * 手札からカードを取り除く
    * @param card 取り除くカード
    */
-  removeCard(card: Card): void {
+  remove(card: Card): void {
     this._cards = this._cards.filter(c => !c.equals(card));
   }
 
+  /**
+   * 手札からカードを取り除く
+   * @param index 取り除くカードのインデックス
+   */
+  removeAt(index: number): void {
+    if (index >= 0 && index < this._cards.length) {
+      throw new Error("index out of range");
+    }
+    this._cards.splice(index, 1);
+  }
+
+  /**
+   * 手札に複数のカードを加えた手札を返す
+   * @param cards
+   * @returns
+   */
   public concat(cards: Card[]): Hand {
     const arr = this._cards.concat(cards);
     const hand = new Hand();
