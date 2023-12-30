@@ -47,6 +47,7 @@ export class Hand {
 
   /**
    * 手四があるかどうかを判定する
+   * @return boolean 手四があるかどうか
    */
   public isTeshi(): boolean {
     let count = 0;
@@ -58,6 +59,19 @@ export class Hand {
       }
 
       if (count >= 3) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * くっつきがあるかどうかを判定する
+   * @return boolean くっつきがあるかどうか
+   */
+  public isKuttsuki(): boolean {
+    for (let i = 0; i < this._cards.length - 1; i++) {
+      if (this._cards[i].month === this._cards[i + 1].month) {
         return true;
       }
     }
