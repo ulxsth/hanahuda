@@ -101,11 +101,11 @@ export class Deck {
    * @param count 引く枚数
    * @returns 引いたカード
    */
-  draw(count: number): Card {
+  draw(count: number): Card[] {
     if (count > this._cards.length) {
       count = this._cards.length;
     }
 
-    return this._cards.splice(0, count)[0];
+    return this._cards.splice(0, count);
   }
 }
