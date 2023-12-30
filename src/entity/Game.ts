@@ -95,6 +95,13 @@ export class Game {
   }
 
   /**
+   * ターンを進める。
+   */
+  nextTurn(): void {
+    this._playerTurn = (this._playerTurn + 1) % 2 as 0 | 1;
+  }
+
+  /**
    * 月を進める。
    */
   nextMonth(): void {
