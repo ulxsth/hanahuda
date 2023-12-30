@@ -1,9 +1,12 @@
 import { YearRecord } from "./YearRecord";
 import Player from "./Player";
 import { Deck } from "./Deck";
+import { UUID } from "crypto";
+
+const crypto = require('crypto');
 
 export class Game {
-  private _id: number;
+  private _id: UUID;
   private _roomName: string;
   private _createdAt: Date;
   private _updatedAt: Date;
@@ -19,17 +22,14 @@ export class Game {
   private previousWinner: 0 | 1;
 
   constructor(
-    id: number,
     roomName: string,
-    createdAt: Date,
-    updatedAt: Date,
     playerName1: string,
     playerName2: string
   ) {
-    this._id = id;
+    this._id = crypto.randomUUID();
     this._roomName = roomName;
-    this._createdAt = createdAt;
-    this._updatedAt = updatedAt;
+    this._createdAt = new Date();
+    this._updatedAt = new Date();
     this._status = GameStatus.Preparation;
 
     this.record = new YearRecord();
@@ -41,7 +41,7 @@ export class Game {
     this.previousWinner = this._playerTurn;
   }
 
-  get id(): number {
+  get id(): UUID {
     return this._id;
   }
 
@@ -78,20 +78,30 @@ export class Game {
   }
 
   /**
-   * 月を進める
+   * ターンの始めに行う初期化処理を行う。
    */
-  nextMonth(): void {
-    this._month++;
+  prepareTurn(): void {
     this._playerTurn = this.previousWinner;
 
     this.deck.init();
     this.players.forEach(player => {
       player.addCards(this.deck.draw(8));
     });
+
+    if (this._status !== GameStatus.Preparation) {
+      this._status = GameStatus.Playing;
+    }
+  }
+
+  /**
+   * 月を進める。
+   */
+  nextMonth(): void {
+    this._month++;
   }
 }
 
-enum GameStatus {
+export enum GameStatus {
   Preparation,
   Playing,
   Finished
