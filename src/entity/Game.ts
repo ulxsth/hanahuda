@@ -85,7 +85,7 @@ export class Game {
 
     this.deck.init();
     this.players.forEach(player => {
-      player.addCards(this.deck.draw(8));
+      player.hand.addCards(this.deck.draw(8));
       player.hand.sort();
     });
 
