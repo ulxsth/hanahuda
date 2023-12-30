@@ -40,7 +40,7 @@ export default class Player {
    * @param cards 加えるカード
    */
   addCards(cards: Card[]): void {
-    this._hand.concat(cards);
+    this._hand = this._hand.concat(cards);
   }
 
   /**
