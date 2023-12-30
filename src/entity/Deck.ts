@@ -79,14 +79,33 @@ export class Deck {
     } catch (e) {
       console.error(e);
     }
+
+    this.shuffle();
   }
 
   /**
-   * 山札からカードを1枚引く
+   * 山札をシャッフルする
    */
-  draw(): Card {
-    const card = this._cards.shift();
-    if (!card) throw new Error('山札が空です。');
-    return card;
+  private shuffle(): void {
+    for (let i = this._cards.length - 1; i > 0; i--) {
+      const r = Math.floor(Math.random() * (i + 1));
+      const tmp = this._cards[i];
+      this._cards[i] = this._cards[r];
+      this._cards[r] = tmp;
+    }
+  }
+
+  /**
+   * 山札からカードを引く。
+   * 指定枚数に達する山札がない場合は、残りのカードを返す。
+   * @param count 引く枚数
+   * @returns 引いたカード
+   */
+  draw(count: number): Card {
+    if (count > this._cards.length) {
+      count = this._cards.length;
+    }
+
+    return this._cards.splice(0, count)[0];
   }
 }
