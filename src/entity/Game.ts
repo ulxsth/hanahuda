@@ -2,7 +2,7 @@ import { YearRecord } from "./YearRecord";
 import Player from "./Player";
 import { Deck } from "./Deck";
 
-class Game {
+export class Game {
   private _id: number;
   private _roomName: string;
   private _createdAt: Date;
