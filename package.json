@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node copy-files.js",
     "start": "node ./build/app.js"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ulxsth/hanahuda#readme",
   "dependencies": {
+    "fs-extra": "^11.2.0",
     "typescript": "^5.3.3",
     "uuid": "^9.0.1"
   },
