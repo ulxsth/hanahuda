@@ -28,30 +28,6 @@ export default class Player {
   }
 
   /**
-   * 手札にカードを加える
-   * @param card 加えるカード
-   */
-  addCard(card: Card): void {
-    this._hand.push(card);
-  }
-
-  /**
-   * 手札に複数のカードを加える
-   * @param cards 加えるカード
-   */
-  addCards(cards: Card[]): void {
-    this._hand = this._hand.concat(cards);
-  }
-
-  /**
-   * 手札からカードを取り除く
-   * @param card 取り除くカード
-   */
-  removeCard(card: Card): void {
-    this._hand = this._hand.filter(c => !c.equals(card));
-  }
-
-  /**
    * スコアを加算する
    */
   addScore(score: number): void {

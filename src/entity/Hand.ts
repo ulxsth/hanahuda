@@ -19,8 +19,28 @@ export class Hand {
     this._cards = cards;
   }
 
-  public push(card: Card): void {
+  /**
+ * 手札にカードを加える
+ * @param card 加えるカード
+ */
+  addCard(card: Card): void {
     this._cards.push(card);
+  }
+
+  /**
+   * 手札に複数のカードを加える
+   * @param cards 加えるカード
+   */
+  addCards(cards: Card[]): void {
+    this._cards = this._cards.concat(cards);
+  }
+
+  /**
+   * 手札からカードを取り除く
+   * @param card 取り除くカード
+   */
+  removeCard(card: Card): void {
+    this._cards = this._cards.filter(c => !c.equals(card));
   }
 
   public concat(cards: Card[]): Hand {
@@ -77,7 +97,7 @@ export class Hand {
         i++;
       }
     }
-    
+
     return false;
   }
 }
