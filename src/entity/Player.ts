@@ -1,3 +1,4 @@
+import { Hand } from './Hand';
 import Card from './cards/Card';
 
 /**
@@ -5,12 +6,12 @@ import Card from './cards/Card';
  */
 export default class Player {
   private _name: string;
-  private _hand: Card[];
+  private _hand: Hand;
   private _score;
 
   constructor(name: string) {
     this._name = name;
-    this._hand = [];
+    this._hand = new Hand();
     this._score = 0;
   }
 
@@ -18,7 +19,7 @@ export default class Player {
     return this._name;
   }
 
-  get hand(): Card[] {
+  get hand(): Hand {
     return this._hand;
   }
 
@@ -39,7 +40,7 @@ export default class Player {
    * @param cards 加えるカード
    */
   addCards(cards: Card[]): void {
-    this._hand = this._hand.concat(cards);
+    this._hand.concat(cards);
   }
 
   /**
