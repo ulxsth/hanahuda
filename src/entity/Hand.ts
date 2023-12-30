@@ -36,4 +36,8 @@ export class Hand {
     hand.from(arr);
     return hand;
   }
+
+  public show(): void {
+    this._cards.forEach(card => card.show());
+  }
 }
