@@ -20,7 +20,7 @@ export class AotanCard extends TanCard {
   }
 
   show(): void {
-    console.log(`青タン札: ${this.month}月`);
+    console.log(`タン札: ${this.month}月 (青タン)`);
   }
 }
 
@@ -30,6 +30,6 @@ export class AkatanCard extends TanCard {
   }
 
   show(): void {
-    console.log(`赤タン札: ${this.month}月`);
+    console.log(`タン札: ${this.month}月 (赤タン)`);
   }
 }

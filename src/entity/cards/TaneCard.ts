@@ -18,10 +18,18 @@ export class InoShikaChoCard extends TaneCard {
   constructor(month: number) {
     super(month);
   }
+
+  show(): void {
+    console.log(`タネ札: ${this.month}月 (猪鹿蝶)`);
+  }
 }
 
 export class SakeCard extends TaneCard {
   constructor(month: number) {
     super(month);
+  }
+
+  show(): void {
+    console.log(`タネ札: ${this.month}月 (酒)`);
   }
 }
