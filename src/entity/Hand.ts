@@ -44,4 +44,23 @@ export class Hand {
   public sort(): void {
     this._cards.sort((a, b) => a.month - b.month);
   }
+
+  /**
+   * 手四があるかどうかを判定する
+   */
+  public isTeshi(): boolean {
+    let count = 0;
+    for (let i = 0; i < this._cards.length - 1; i++) {
+      if (this._cards[i].month === this._cards[i + 1].month) {
+        count++;
+      } else {
+        count = 0;
+      }
+
+      if (count >= 3) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
