@@ -70,11 +70,14 @@ export class Hand {
    * @return boolean くっつきがあるかどうか
    */
   public isKuttsuki(): boolean {
+    let pairCount = 0;
     for (let i = 0; i < this._cards.length - 1; i++) {
       if (this._cards[i].month === this._cards[i + 1].month) {
-        return true;
+        pairCount++;
+        i++;
       }
     }
+    
     return false;
   }
 }
