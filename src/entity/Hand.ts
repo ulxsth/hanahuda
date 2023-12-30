@@ -50,6 +50,18 @@ export class Hand {
     return hand;
   }
 
+  /**
+   * 手札を空にする
+   */
+  public clear(): void {
+    this._cards = [];
+  }
+
+  /**
+   * 手札から指定したカードを取り除いた手札を返す
+   * @param callbackfn
+   * @returns
+   */
   public filter(callbackfn: (value: Card, index: number, array: Card[]) => unknown): Hand {
     const arr = this._cards.filter(callbackfn);
     const hand = new Hand();
