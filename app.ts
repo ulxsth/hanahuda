@@ -1,5 +1,6 @@
 import { ReadLine } from "readline";
 import { Game } from "./src/entity/Game";
+import Player from "./src/entity/Player";
 
 const POINTS = {
   "teshi": 6,
@@ -52,33 +53,39 @@ for (let i = 1; i <= 1; i++) {
   });
   if (flag) continue;
 
-  const rl: ReadLine = require("readline").createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-  while (true) {
-    console.log(game.players[game.playerTurn].name + " のターンです");
+  const question = (player: Player) => {
+    const rl: ReadLine = require("readline").createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
 
-    game.players[game.playerTurn].hand.cards.forEach((card, index) => {
+    console.log(player.name + " のターンです");
+    player.hand.cards.forEach((card, index) => {
       console.log(`${index}: ${card.month}`);
     });
     rl.question("捨てるカードを選択してください: ", (answer: string) => {
       const index = parseInt(answer);
       if (isNaN(index)) {
-        console.log("無効な選択です");
+        console.log("数値を入力してください");
         rl.close();
+        question(player);
         return;
       }
 
       try {
-        game.players[game.playerTurn].hand.removeAt(index);
+        player.hand.removeAt(index);
       } catch (e) {
-        console.log("無効な選択です");
+        console.log("そのインデックスのカードは存在しません");
         rl.close();
+        question(player);
         return;
       }
 
+      game.nextTurn();
+      question(game.players[game.playerTurn]);
       rl.close();
     });
   }
+
+  question(game.players[game.playerTurn]);
 }
